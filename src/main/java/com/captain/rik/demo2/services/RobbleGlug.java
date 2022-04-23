@@ -9,12 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service
-public class EmployeeService {
+@Service("robbleGlug")
+public class RobbleGlug implements iEmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    @Override
     public List<Employee> getAllEmployees() {
+        System.out.println("legacy");
         return employeeRepository.findAll();
     }
 

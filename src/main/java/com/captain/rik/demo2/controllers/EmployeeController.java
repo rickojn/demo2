@@ -1,35 +1,31 @@
 package com.captain.rik.demo2.controllers;
 
+import com.captain.rik.demo2.exceptions.ResourceNotFoundException;
+import com.captain.rik.demo2.models.Employee;
+import com.captain.rik.demo2.repositories.EmployeeRepository;
+import com.captain.rik.demo2.services.iEmployeeService;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.Valid;
-
-import com.captain.rik.demo2.services.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.captain.rik.demo2.exceptions.ResourceNotFoundException;
-import com.captain.rik.demo2.models.Employee;
-import com.captain.rik.demo2.repositories.EmployeeRepository;
-
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
-    @Autowired
+
+    private iEmployeeService employeeService;
+
     private EmployeeRepository employeeRepository;
 
-    @Autowired
-    private EmployeeService employeeService;
+    public  EmployeeController(@Qualifier("robbleGlug") iEmployeeService employeeService, EmployeeRepository employeeRepository){
+        this.employeeService = employeeService;
+        this.employeeRepository = employeeRepository;
+    }
+
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
