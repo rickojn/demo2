@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface iEmployeeService {
     List<Employee> getAllEmployees();
+    List<Employee> getEmployeesByFirstName(String firstName) throws Exception;
 }

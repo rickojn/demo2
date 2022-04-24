@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service
+@Service("EmployeeServiceRefactored")
 public class EmployeeServiceRefactored implements iEmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -18,6 +18,10 @@ public class EmployeeServiceRefactored implements iEmployeeService {
     public List<Employee> getAllEmployees() {
         System.out.println("Refactored");
         return employeeRepository.findAll();
+    }
+
+    public List<Employee> getEmployeesByFirstName(String firstName){
+        return employeeRepository.findByFirstName(firstName);
     }
 
 }

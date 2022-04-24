@@ -20,8 +20,10 @@ public class RobbleGlug implements iEmployeeService {
         return employeeRepository.findAll();
     }
 
-    public List<Employee> getEmployeesByFirstName(String firstName){
-        return employeeRepository.findByFirstName(firstName);
+    @Override
+    public List<Employee> getEmployeesByFirstName(String firstName) throws Exception {
+        throw new NoSuchMethodException();
     }
+
 
 }

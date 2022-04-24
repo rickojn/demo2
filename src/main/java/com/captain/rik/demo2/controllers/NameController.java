@@ -21,7 +21,7 @@ public class NameController {
 
     private EmployeeRepository employeeRepository;
 
-    public NameController(@Qualifier("robbleGlug") iEmployeeService employeeService, EmployeeRepository employeeRepository){
+    public NameController(@Qualifier("EmployeeServiceRefactored") iEmployeeService employeeService, EmployeeRepository employeeRepository){
         this.employeeService = employeeService;
         this.employeeRepository = employeeRepository;
     }
@@ -30,8 +30,8 @@ public class NameController {
 
     @GetMapping("/firstNames/{firstName}")
     public List<Employee> getEmployeeById(@PathVariable(value = "firstName") String firstName)
-            throws ResourceNotFoundException {
-        return employeeRepository.findByFirstName(firstName);
+            throws Exception {
+        return employeeService.getEmployeesByFirstName(firstName);
     }
 
 
