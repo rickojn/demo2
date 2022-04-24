@@ -21,7 +21,7 @@ public class NameController {
 
     private EmployeeRepository employeeRepository;
 
-    public NameController(@Qualifier("EmployeeServiceRefactored") iEmployeeService employeeService, EmployeeRepository employeeRepository){
+    public NameController(@Qualifier("nameControllerEmployeeService") iEmployeeService employeeService, EmployeeRepository employeeRepository){
         this.employeeService = employeeService;
         this.employeeRepository = employeeRepository;
     }

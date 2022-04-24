@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service("EmployeeServiceRefactored")
+
 public class EmployeeServiceRefactored implements iEmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;

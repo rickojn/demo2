@@ -21,7 +21,7 @@ public class EmployeeController {
 
     private EmployeeRepository employeeRepository;
 
-    public  EmployeeController(@Qualifier("robbleGlug") iEmployeeService employeeService, EmployeeRepository employeeRepository){
+    public  EmployeeController(@Qualifier("employeeControllerEmployeeService") iEmployeeService employeeService, EmployeeRepository employeeRepository){
         this.employeeService = employeeService;
         this.employeeRepository = employeeRepository;
     }

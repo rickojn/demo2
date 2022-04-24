@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service("robbleGlug")
+
 public class RobbleGlug implements iEmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
