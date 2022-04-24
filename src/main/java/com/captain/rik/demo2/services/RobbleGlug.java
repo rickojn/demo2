@@ -20,4 +20,8 @@ public class RobbleGlug implements iEmployeeService {
         return employeeRepository.findAll();
     }
 
+    public List<Employee> getEmployeesByFirstName(String firstName){
+        return employeeRepository.findByFirstName(firstName);
+    }
+
 }
