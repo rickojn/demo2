@@ -23,20 +23,5 @@ public class Demo2Application {
 		}
 	}
 
-	@Bean
-	iEmployeeService employeeControllerEmployeeService(){
-		return new RobbleGlug();
-	}
-
-	@Bean
-	iEmployeeService nameControllerEmployeeService(){
-		if ("YES".equals(System.getenv("REFACTOR"))){
-			return new EmployeeServiceRefactored(employeeRepository);
-		}
-		else
-		{
-			return new RobbleGlug();
-		}
-	}
 
 }
