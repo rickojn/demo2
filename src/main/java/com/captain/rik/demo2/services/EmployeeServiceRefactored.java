@@ -11,9 +11,11 @@ import java.util.List;
 
 
 public class EmployeeServiceRefactored implements iEmployeeService {
-    @Autowired
-    private EmployeeRepository employeeRepository;
 
+    private EmployeeRepository employeeRepository;
+    public  EmployeeServiceRefactored(EmployeeRepository employeeRepository){
+        this.employeeRepository = employeeRepository;
+    }
     @Override
     public List<Employee> getAllEmployees() {
         System.out.println("Refactored");
