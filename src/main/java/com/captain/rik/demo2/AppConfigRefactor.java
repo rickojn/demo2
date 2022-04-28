@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "REFACTOR", havingValue = "NO")
-public class AppConfig {
+@ConditionalOnProperty(name = "REFACTOR", havingValue = "YES")
+public class AppConfigRefactor {
     @Autowired
     private EmployeeRepository employeeRepository;
     @Bean
@@ -21,7 +21,7 @@ public class AppConfig {
 
     @Bean
     iEmployeeService nameControllerEmployeeService(){
-        return new RobbleGlug();
+        return new EmployeeServiceRefactored(employeeRepository);
     }
 
 }
