@@ -5,10 +5,12 @@ import com.captain.rik.demo2.services.EmployeeServiceRefactored;
 import com.captain.rik.demo2.services.RobbleGlug;
 import com.captain.rik.demo2.services.iEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ConditionalOnProperty(name = "REFACTOR", havingValue = "YES")
 public class AppConfig {
     @Autowired
     private EmployeeRepository employeeRepository;
